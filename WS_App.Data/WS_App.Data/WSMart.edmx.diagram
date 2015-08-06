@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="286fc84c712c432a9a32478d138413b8" Name="Diagram1">
+        <EntityTypeShape EntityType="WS_MartModel.BusinessCategory" Width="1.5" PointX="1.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.BusinessCategoryLink" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.BusinessPerson" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.BusinessPinCodeLink" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.City" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.Country" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.Order" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.PersonAdress" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.Product" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.ProductCategory" Width="1.5" PointX="3.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.ProductDetail" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.ProductVarient" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WS_MartModel.State" Width="1.5" PointX="1.5" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="WS_MartModel.FK_BusinessCategory_BusinessCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_BusinessCategoryLink_BusinessCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_BusinessPerson_BusinessCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_BusinessCategoryLink_BusinessPerson" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_BusinessPinCodeLink_BusinessPerson" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_BusinessProduct_BusinessPerson" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_Order_Buyer" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_Order_Seller" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_City_State" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_PersonAdress_City" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_State_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_Order_PersonAdress" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_Order_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_ProductDetails_BusinessProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="WS_MartModel.FK_ProductVarient_BusinessProduct" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
