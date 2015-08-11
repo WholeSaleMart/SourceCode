@@ -14,8 +14,11 @@ namespace WS_App.Service
     {
         public string GetData(int value)
         {
+            int a;
             return string.Format("You entered: {0}", value);
+
         }
+
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {
