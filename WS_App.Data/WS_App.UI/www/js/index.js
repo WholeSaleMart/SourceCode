@@ -20,6 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+        $('body').html(template);
     },
     // Bind Event Listeners
     //
@@ -47,5 +48,17 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+var source;
+var template;
+var path = 'templates/headerbar.html';
+$.ajax({
+    url: path,
+    cache: true,
+    success: function (data) {
+        source = data;
+        template = Handlebars.compile(source);        
+    }
+});
 
 app.initialize();
