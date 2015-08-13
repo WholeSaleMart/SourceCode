@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WS_MartModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BusinessCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Parent" Type="int" />
+    <Property Name="MenuOrder" Type="int" />
+    <Property Name="ShowInMenu" Type="bit" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BusinessCategoryLink">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessPersonID" Type="int" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BusinessPerson">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailID" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="BussinessType" Type="varchar" MaxLength="20" />
+    <Property Name="BussinesCategoryID" Type="int" />
+    <Property Name="BussinessName" Type="varchar" MaxLength="50" />
+    <Property Name="BusinessDetails" Type="varchar" MaxLength="1000" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="MobileNo" Type="char" MaxLength="12" />
+    <Property Name="OtherNo" Type="char" MaxLength="12" />
+    <Property Name="Logo" Type="image" />
+    <Property Name="LogoPath" Type="varchar" MaxLength="200" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BusinessPinCodeLink">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessPersonID" Type="int" />
+    <Property Name="PinCode" Type="char" MaxLength="6" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" />
+    <Property Name="CityCode" Type="char" MaxLength="10" />
+    <Property Name="StateID" Type="int" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="100" />
+    <Property Name="CountryCode" Type="char" MaxLength="3" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuyerID" Type="int" />
+    <Property Name="SellerID" Type="int" />
+    <Property Name="DeliveryAddressID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="OrderAmt" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="ShippingAmt" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="OrderDeliveryDate" Type="datetime" />
+    <Property Name="OrderStatus" Type="char" MaxLength="15" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PersonAdress">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessPersonID" Type="int" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="100" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="100" />
+    <Property Name="AddressLine3" Type="varchar" MaxLength="100" />
+    <Property Name="CityID" Type="int" />
+    <Property Name="PinCode" Type="char" MaxLength="6" />
+    <Property Name="PrimaryFlag" Type="bit" />
+    <Property Name="UpdateDatetime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessPersonID" Type="int" />
+    <Property Name="ProductName" Type="varchar" MaxLength="100" />
+    <Property Name="ProductCategoryID" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="Unit" Type="varchar" MaxLength="20" />
+    <Property Name="Price" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Details" Type="varchar(max)" />
+    <Property Name="Rating" Type="smallint" />
+    <Property Name="DeliveryDays" Type="smallint" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCategoryName" Type="nchar" MaxLength="10" />
+    <Property Name="Description" Type="nchar" MaxLength="10" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="FieldName" Type="varchar" MaxLength="50" />
+    <Property Name="FieldValue" Type="varchar" MaxLength="1000" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="CreaetDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProductVarient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="VarientType" Type="varchar" MaxLength="20" />
+    <Property Name="VarientValue" Type="varchar" MaxLength="50" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="Price" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="DeliveryDays" Type="smallint" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateName" Type="nchar" MaxLength="10" />
+    <Property Name="StateCode" Type="nchar" MaxLength="10" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="UpdateUserID" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="CreateUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_BusinessCategory_BusinessCategory">
+    <End Role="BusinessCategory" Type="Self.BusinessCategory" Multiplicity="0..1" />
+    <End Role="BusinessCategory1" Type="Self.BusinessCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessCategory1">
+        <PropertyRef Name="Parent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessCategoryLink_BusinessCategory">
+    <End Role="BusinessCategory" Type="Self.BusinessCategory" Multiplicity="0..1" />
+    <End Role="BusinessCategoryLink" Type="Self.BusinessCategoryLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessCategoryLink">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessCategoryLink_BusinessPerson">
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="0..1" />
+    <End Role="BusinessCategoryLink" Type="Self.BusinessCategoryLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessPerson">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessCategoryLink">
+        <PropertyRef Name="BusinessPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessPerson_BusinessCategory">
+    <End Role="BusinessCategory" Type="Self.BusinessCategory" Multiplicity="0..1" />
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessPerson">
+        <PropertyRef Name="BussinesCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessPinCodeLink_BusinessPerson">
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="0..1" />
+    <End Role="BusinessPinCodeLink" Type="Self.BusinessPinCodeLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessPerson">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessPinCodeLink">
+        <PropertyRef Name="BusinessPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessProduct_BusinessPerson">
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessPerson">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="BusinessPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State">
+    <End Role="State" Type="Self.State" Multiplicity="0..1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Buyer">
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessPerson">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="BuyerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_PersonAdress">
+    <End Role="PersonAdress" Type="Self.PersonAdress" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonAdress">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="DeliveryAddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Seller">
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessPerson">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="SellerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonAdress_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="PersonAdress" Type="Self.PersonAdress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PersonAdress">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductDetails_BusinessProduct">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductDetails">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductVarient_BusinessProduct">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductVarient" Type="Self.ProductVarient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductVarient">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WS_MartModelStoreContainer">
+    <EntitySet Name="BusinessCategory" EntityType="Self.BusinessCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusinessCategoryLink" EntityType="Self.BusinessCategoryLink" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusinessPerson" EntityType="Self.BusinessPerson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusinessPinCodeLink" EntityType="Self.BusinessPinCodeLink" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonAdress" EntityType="Self.PersonAdress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductDetails" EntityType="Self.ProductDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductVarient" EntityType="Self.ProductVarient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BusinessCategory_BusinessCategory" Association="Self.FK_BusinessCategory_BusinessCategory">
+      <End Role="BusinessCategory" EntitySet="BusinessCategory" />
+      <End Role="BusinessCategory1" EntitySet="BusinessCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessCategoryLink_BusinessCategory" Association="Self.FK_BusinessCategoryLink_BusinessCategory">
+      <End Role="BusinessCategory" EntitySet="BusinessCategory" />
+      <End Role="BusinessCategoryLink" EntitySet="BusinessCategoryLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessCategoryLink_BusinessPerson" Association="Self.FK_BusinessCategoryLink_BusinessPerson">
+      <End Role="BusinessPerson" EntitySet="BusinessPerson" />
+      <End Role="BusinessCategoryLink" EntitySet="BusinessCategoryLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessPerson_BusinessCategory" Association="Self.FK_BusinessPerson_BusinessCategory">
+      <End Role="BusinessCategory" EntitySet="BusinessCategory" />
+      <End Role="BusinessPerson" EntitySet="BusinessPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessPinCodeLink_BusinessPerson" Association="Self.FK_BusinessPinCodeLink_BusinessPerson">
+      <End Role="BusinessPerson" EntitySet="BusinessPerson" />
+      <End Role="BusinessPinCodeLink" EntitySet="BusinessPinCodeLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessProduct_BusinessPerson" Association="Self.FK_BusinessProduct_BusinessPerson">
+      <End Role="BusinessPerson" EntitySet="BusinessPerson" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Buyer" Association="Self.FK_Order_Buyer">
+      <End Role="BusinessPerson" EntitySet="BusinessPerson" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_PersonAdress" Association="Self.FK_Order_PersonAdress">
+      <End Role="PersonAdress" EntitySet="PersonAdress" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Seller" Association="Self.FK_Order_Seller">
+      <End Role="BusinessPerson" EntitySet="BusinessPerson" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonAdress_City" Association="Self.FK_PersonAdress_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="PersonAdress" EntitySet="PersonAdress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductDetails_BusinessProduct" Association="Self.FK_ProductDetails_BusinessProduct">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductDetails" EntitySet="ProductDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductVarient_BusinessProduct" Association="Self.FK_ProductVarient_BusinessProduct">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductVarient" EntitySet="ProductVarient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

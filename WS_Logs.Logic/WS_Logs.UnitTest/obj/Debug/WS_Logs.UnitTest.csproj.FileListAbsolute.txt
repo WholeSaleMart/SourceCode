@@ -1,0 +1,10 @@
+D:\Work\Android\WS_Logs.Logic\WS_Logs.UnitTest\obj\Debug\WS_Logs.UnitTest.csprojResolveAssemblyReference.cache
+D:\Work\Android\WS_Logs.Logic\WS_Logs.UnitTest\bin\Debug\WS_Logs.UnitTest.dll
+D:\Work\Android\WS_Logs.Logic\WS_Logs.UnitTest\bin\Debug\WS_Logs.UnitTest.pdb
+D:\Work\Android\WS_Logs.Logic\WS_Logs.UnitTest\bin\Debug\WS_Logs.Logic.dll
+D:\Work\Android\WS_Logs.Logic\WS_Logs.UnitTest\bin\Debug\EntityFramework.dll
+D:\Work\Android\WS_Logs.Logic\WS_Logs.UnitTest\bin\Debug\WS_Logs.Logic.pdb
+D:\Work\Android\WS_Logs.Logic\WS_Logs.UnitTest\bin\Debug\EntityFramework.xml
+D:\Work\Android\WS_Logs.Logic\WS_Logs.UnitTest\obj\Debug\WS_Logs.UnitTest.dll
+D:\Work\Android\WS_Logs.Logic\WS_Logs.UnitTest\obj\Debug\WS_Logs.UnitTest.pdb
+D:\Work\Android\WS_Logs.Logic\WS_Logs.UnitTest\bin\Debug\WS_Logs.UnitTest.dll.config

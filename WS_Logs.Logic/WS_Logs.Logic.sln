@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS_Logs.Logic", "WS_Logs.Logic\WS_Logs.Logic.csproj", "{7431C0B1-154B-41BF-82B2-2BE447F92D59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS_Test", "WS_Test\WS_Test.csproj", "{E39CB46D-1182-4574-8339-AB0B58162FD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7431C0B1-154B-41BF-82B2-2BE447F92D59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7431C0B1-154B-41BF-82B2-2BE447F92D59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7431C0B1-154B-41BF-82B2-2BE447F92D59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7431C0B1-154B-41BF-82B2-2BE447F92D59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E39CB46D-1182-4574-8339-AB0B58162FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E39CB46D-1182-4574-8339-AB0B58162FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E39CB46D-1182-4574-8339-AB0B58162FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E39CB46D-1182-4574-8339-AB0B58162FD1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

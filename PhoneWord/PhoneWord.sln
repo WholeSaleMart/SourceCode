@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneWord", "PhoneWord\PhoneWord.csproj", "{E2C9CA01-F1F3-4640-AA40-0E6DA5FCBC57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneWord.UITests", "PhoneWord.UITests\PhoneWord.UITests.csproj", "{9585F55B-E378-4228-B96F-45027FD06364}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9585F55B-E378-4228-B96F-45027FD06364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9585F55B-E378-4228-B96F-45027FD06364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9585F55B-E378-4228-B96F-45027FD06364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9585F55B-E378-4228-B96F-45027FD06364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2C9CA01-F1F3-4640-AA40-0E6DA5FCBC57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2C9CA01-F1F3-4640-AA40-0E6DA5FCBC57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2C9CA01-F1F3-4640-AA40-0E6DA5FCBC57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2C9CA01-F1F3-4640-AA40-0E6DA5FCBC57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

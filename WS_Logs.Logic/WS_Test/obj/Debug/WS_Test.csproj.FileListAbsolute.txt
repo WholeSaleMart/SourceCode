@@ -1,0 +1,12 @@
+D:\Work\Android\WS_Logs.Logic\WS_Test\bin\Debug\WS_Test.exe.config
+D:\Work\Android\WS_Logs.Logic\WS_Test\bin\Debug\WS_Test.exe
+D:\Work\Android\WS_Logs.Logic\WS_Test\bin\Debug\WS_Test.pdb
+D:\Work\Android\WS_Logs.Logic\WS_Test\bin\Debug\WS_Logs.Logic.dll
+D:\Work\Android\WS_Logs.Logic\WS_Test\bin\Debug\WS_Logs.Logic.pdb
+D:\Work\Android\WS_Logs.Logic\WS_Test\obj\Debug\WS_Test.csprojResolveAssemblyReference.cache
+D:\Work\Android\WS_Logs.Logic\WS_Test\obj\Debug\WS_Test.exe
+D:\Work\Android\WS_Logs.Logic\WS_Test\obj\Debug\WS_Test.pdb
+D:\Work\Android\WS_Logs.Logic\WS_Test\bin\Debug\EntityFramework.dll
+D:\Work\Android\WS_Logs.Logic\WS_Test\bin\Debug\EntityFramework.xml
+D:\Work\Android\WS_Logs.Logic\WS_Test\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\Android\WS_Logs.Logic\WS_Test\bin\Debug\EntityFramework.SqlServer.xml

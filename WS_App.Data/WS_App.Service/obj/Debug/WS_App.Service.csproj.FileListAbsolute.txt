@@ -1,0 +1,11 @@
+D:\Work\Android\WS_App.Data\WS_App.Service\bin\WS_App.Service.dll.config
+D:\Work\Android\WS_App.Data\WS_App.Service\bin\WS_App.Service.dll
+D:\Work\Android\WS_App.Data\WS_App.Service\bin\WS_App.Service.pdb
+D:\Work\Android\WS_App.Data\WS_App.Service\bin\EntityFramework.SqlServer.dll
+D:\Work\Android\WS_App.Data\WS_App.Service\bin\WS_App.Data.exe
+D:\Work\Android\WS_App.Data\WS_App.Service\bin\EntityFramework.dll
+D:\Work\Android\WS_App.Data\WS_App.Service\bin\WS_App.Data.pdb
+D:\Work\Android\WS_App.Data\WS_App.Service\bin\EntityFramework.xml
+D:\Work\Android\WS_App.Data\WS_App.Service\obj\Debug\WS_App.Service.csprojResolveAssemblyReference.cache
+D:\Work\Android\WS_App.Data\WS_App.Service\obj\Debug\WS_App.Service.dll
+D:\Work\Android\WS_App.Data\WS_App.Service\obj\Debug\WS_App.Service.pdb

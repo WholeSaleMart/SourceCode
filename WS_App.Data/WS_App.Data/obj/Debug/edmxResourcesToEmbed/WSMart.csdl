@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WS_MartModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BusinessCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Parent" Type="Int32" />
+    <Property Name="MenuOrder" Type="Int32" />
+    <Property Name="ShowInMenu" Type="Boolean" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BusinessCategory1" Relationship="Self.FK_BusinessCategory_BusinessCategory" FromRole="BusinessCategory" ToRole="BusinessCategory1" />
+    <NavigationProperty Name="BusinessCategory2" Relationship="Self.FK_BusinessCategory_BusinessCategory" FromRole="BusinessCategory1" ToRole="BusinessCategory" />
+    <NavigationProperty Name="BusinessCategoryLinks" Relationship="Self.FK_BusinessCategoryLink_BusinessCategory" FromRole="BusinessCategory" ToRole="BusinessCategoryLink" />
+    <NavigationProperty Name="BusinessPersons" Relationship="Self.FK_BusinessPerson_BusinessCategory" FromRole="BusinessCategory" ToRole="BusinessPerson" />
+  </EntityType>
+  <EntityType Name="BusinessCategoryLink">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessPersonID" Type="Int32" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BusinessCategory" Relationship="Self.FK_BusinessCategoryLink_BusinessCategory" FromRole="BusinessCategoryLink" ToRole="BusinessCategory" />
+    <NavigationProperty Name="BusinessPerson" Relationship="Self.FK_BusinessCategoryLink_BusinessPerson" FromRole="BusinessCategoryLink" ToRole="BusinessPerson" />
+  </EntityType>
+  <EntityType Name="BusinessPerson">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BussinessType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BussinesCategoryID" Type="Int32" />
+    <Property Name="BussinessName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessDetails" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="OtherNo" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="LogoPath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BusinessCategory" Relationship="Self.FK_BusinessPerson_BusinessCategory" FromRole="BusinessPerson" ToRole="BusinessCategory" />
+    <NavigationProperty Name="BusinessCategoryLinks" Relationship="Self.FK_BusinessCategoryLink_BusinessPerson" FromRole="BusinessPerson" ToRole="BusinessCategoryLink" />
+    <NavigationProperty Name="BusinessPinCodeLinks" Relationship="Self.FK_BusinessPinCodeLink_BusinessPerson" FromRole="BusinessPerson" ToRole="BusinessPinCodeLink" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_BusinessProduct_BusinessPerson" FromRole="BusinessPerson" ToRole="Product" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Buyer" FromRole="BusinessPerson" ToRole="Order" />
+    <NavigationProperty Name="Orders1" Relationship="Self.FK_Order_Seller" FromRole="BusinessPerson" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="BusinessPinCodeLink">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessPersonID" Type="Int32" />
+    <Property Name="PinCode" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BusinessPerson" Relationship="Self.FK_BusinessPinCodeLink_BusinessPerson" FromRole="BusinessPinCodeLink" ToRole="BusinessPerson" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CityCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="StateID" Type="Int32" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="State" Relationship="Self.FK_City_State" FromRole="City" ToRole="State" />
+    <NavigationProperty Name="PersonAdresses" Relationship="Self.FK_PersonAdress_City" FromRole="City" ToRole="PersonAdress" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="States" Relationship="Self.FK_State_Country" FromRole="Country" ToRole="State" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuyerID" Type="Int32" />
+    <Property Name="SellerID" Type="Int32" />
+    <Property Name="DeliveryAddressID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="OrderAmt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ShippingAmt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="OrderDate" Type="DateTime" Precision="3" />
+    <Property Name="OrderDeliveryDate" Type="DateTime" Precision="3" />
+    <Property Name="OrderStatus" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BusinessPerson" Relationship="Self.FK_Order_Buyer" FromRole="Order" ToRole="BusinessPerson" />
+    <NavigationProperty Name="BusinessPerson1" Relationship="Self.FK_Order_Seller" FromRole="Order" ToRole="BusinessPerson" />
+    <NavigationProperty Name="PersonAdress" Relationship="Self.FK_Order_PersonAdress" FromRole="Order" ToRole="PersonAdress" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product" FromRole="Order" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="PersonAdress">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessPersonID" Type="Int32" />
+    <Property Name="AddressLine1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CityID" Type="Int32" />
+    <Property Name="PinCode" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="PrimaryFlag" Type="Boolean" />
+    <Property Name="UpdateDatetime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="City" Relationship="Self.FK_PersonAdress_City" FromRole="PersonAdress" ToRole="City" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_PersonAdress" FromRole="PersonAdress" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessPersonID" Type="Int32" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProductCategoryID" Type="Int32" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="Unit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="Int16" />
+    <Property Name="DeliveryDays" Type="Int16" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BusinessPerson" Relationship="Self.FK_BusinessProduct_BusinessPerson" FromRole="Product" ToRole="BusinessPerson" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Product" FromRole="Product" ToRole="Order" />
+    <NavigationProperty Name="ProductDetails" Relationship="Self.FK_ProductDetails_BusinessProduct" FromRole="Product" ToRole="ProductDetails" />
+    <NavigationProperty Name="ProductVarients" Relationship="Self.FK_ProductVarient_BusinessProduct" FromRole="Product" ToRole="ProductVarient" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductCategoryName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="FieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FieldValue" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreaetDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_ProductDetails_BusinessProduct" FromRole="ProductDetails" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ProductVarient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="VarientType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VarientValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DeliveryDays" Type="Int16" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_ProductVarient_BusinessProduct" FromRole="ProductVarient" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="StateCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_City_State" FromRole="State" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_State_Country" FromRole="State" ToRole="Country" />
+  </EntityType>
+  <Association Name="FK_BusinessCategory_BusinessCategory">
+    <End Role="BusinessCategory" Type="Self.BusinessCategory" Multiplicity="0..1" />
+    <End Role="BusinessCategory1" Type="Self.BusinessCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessCategory1">
+        <PropertyRef Name="Parent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessCategoryLink_BusinessCategory">
+    <End Role="BusinessCategory" Type="Self.BusinessCategory" Multiplicity="0..1" />
+    <End Role="BusinessCategoryLink" Type="Self.BusinessCategoryLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessCategoryLink">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessPerson_BusinessCategory">
+    <End Role="BusinessCategory" Type="Self.BusinessCategory" Multiplicity="0..1" />
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessPerson">
+        <PropertyRef Name="BussinesCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessCategoryLink_BusinessPerson">
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="0..1" />
+    <End Role="BusinessCategoryLink" Type="Self.BusinessCategoryLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessPerson">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessCategoryLink">
+        <PropertyRef Name="BusinessPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessPinCodeLink_BusinessPerson">
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="0..1" />
+    <End Role="BusinessPinCodeLink" Type="Self.BusinessPinCodeLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessPerson">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BusinessPinCodeLink">
+        <PropertyRef Name="BusinessPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessProduct_BusinessPerson">
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessPerson">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="BusinessPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Buyer">
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessPerson">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="BuyerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Seller">
+    <End Role="BusinessPerson" Type="Self.BusinessPerson" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessPerson">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="SellerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State">
+    <End Role="State" Type="Self.State" Multiplicity="0..1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonAdress_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="PersonAdress" Type="Self.PersonAdress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PersonAdress">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_PersonAdress">
+    <End Role="PersonAdress" Type="Self.PersonAdress" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonAdress">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="DeliveryAddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductDetails_BusinessProduct">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductDetails">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductVarient_BusinessProduct">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductVarient" Type="Self.ProductVarient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductVarient">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WS_MartEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BusinessCategories" EntityType="Self.BusinessCategory" />
+    <EntitySet Name="BusinessCategoryLinks" EntityType="Self.BusinessCategoryLink" />
+    <EntitySet Name="BusinessPersons" EntityType="Self.BusinessPerson" />
+    <EntitySet Name="BusinessPinCodeLinks" EntityType="Self.BusinessPinCodeLink" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="PersonAdresses" EntityType="Self.PersonAdress" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
+    <EntitySet Name="ProductDetails" EntityType="Self.ProductDetail" />
+    <EntitySet Name="ProductVarients" EntityType="Self.ProductVarient" />
+    <EntitySet Name="States" EntityType="Self.State" />
+    <AssociationSet Name="FK_BusinessCategory_BusinessCategory" Association="Self.FK_BusinessCategory_BusinessCategory">
+      <End Role="BusinessCategory" EntitySet="BusinessCategories" />
+      <End Role="BusinessCategory1" EntitySet="BusinessCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessCategoryLink_BusinessCategory" Association="Self.FK_BusinessCategoryLink_BusinessCategory">
+      <End Role="BusinessCategory" EntitySet="BusinessCategories" />
+      <End Role="BusinessCategoryLink" EntitySet="BusinessCategoryLinks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessPerson_BusinessCategory" Association="Self.FK_BusinessPerson_BusinessCategory">
+      <End Role="BusinessCategory" EntitySet="BusinessCategories" />
+      <End Role="BusinessPerson" EntitySet="BusinessPersons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessCategoryLink_BusinessPerson" Association="Self.FK_BusinessCategoryLink_BusinessPerson">
+      <End Role="BusinessPerson" EntitySet="BusinessPersons" />
+      <End Role="BusinessCategoryLink" EntitySet="BusinessCategoryLinks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessPinCodeLink_BusinessPerson" Association="Self.FK_BusinessPinCodeLink_BusinessPerson">
+      <End Role="BusinessPerson" EntitySet="BusinessPersons" />
+      <End Role="BusinessPinCodeLink" EntitySet="BusinessPinCodeLinks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessProduct_BusinessPerson" Association="Self.FK_BusinessProduct_BusinessPerson">
+      <End Role="BusinessPerson" EntitySet="BusinessPersons" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Buyer" Association="Self.FK_Order_Buyer">
+      <End Role="BusinessPerson" EntitySet="BusinessPersons" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Seller" Association="Self.FK_Order_Seller">
+      <End Role="BusinessPerson" EntitySet="BusinessPersons" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonAdress_City" Association="Self.FK_PersonAdress_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="PersonAdress" EntitySet="PersonAdresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="State" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_PersonAdress" Association="Self.FK_Order_PersonAdress">
+      <End Role="PersonAdress" EntitySet="PersonAdresses" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductDetails_BusinessProduct" Association="Self.FK_ProductDetails_BusinessProduct">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductDetails" EntitySet="ProductDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductVarient_BusinessProduct" Association="Self.FK_ProductVarient_BusinessProduct">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductVarient" EntitySet="ProductVarients" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
