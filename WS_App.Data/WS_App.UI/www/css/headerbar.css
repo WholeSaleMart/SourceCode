@@ -4,11 +4,15 @@
 
 .tmplt-hb-logo {
     float:left;color:white;font-size:large;padding-top:12px;
+    float:left;width:30px;height:100%;background-image:url('../img/logo.png');background-size:25px;background-repeat:no-repeat;background-position:center;
 }
-
-    .tmplt-hb-logo span {
-        font-size:xx-large;font-family:Algerian;
-    }
+    
+.tmplt-hb-name {
+    float:left;color:white;font-size:large;padding-top:12px;
+}
+    .tmplt-hb-name span {
+            font-size:xx-large;font-family:Algerian;
+        }
 .tmplt-hb-settings {
-    float:right; width:40px;height:100%;background-image:url('../img/settings.png');
+    float:right; width:40px;height:100%;background-image:url('../img/settings.png');background-size:30px;background-repeat:no-repeat;background-position:center;
 }

@@ -1,3 +1,4 @@
+/// <reference path="../templates/headerbar.html" />
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -20,6 +21,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+        this.setHeaderBar();
     },
     // Bind Event Listeners
     //
@@ -45,7 +47,22 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    setHeaderBar: function () {
+        var source;
+        var template;
+        var path = 'templates/headerbar.html';
+        $.ajax({
+            url: path,
+            cache: true,
+            success: function (data) {
+                source = data;
+                template = Handlebars.compile(source);
+                $('body').html(template());
+            }
+        });
     }
+
 };
 
 app.initialize();
