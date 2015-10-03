@@ -1,7 +1,7 @@
-create database WSM_GIS;
+create database PostalLocation;
 go
 
-use WSM_GIS;
+use PostalLocation;
 go
 
 create table Country (
@@ -27,7 +27,6 @@ create table City (
 go
 
 create view vCity
-with schemabinding
 as
 select 
 	cn.Name as Country,
