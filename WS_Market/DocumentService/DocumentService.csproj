@@ -66,12 +66,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DocumentHelper.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categories.cs" />
     <Compile Include="DocumentHelper.svc.cs">
       <DependentUpon>DocumentHelper.svc</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocument.ashx.cs">
+      <DependentUpon>GetDocument.ashx</DependentUpon>
     </Compile>
     <Compile Include="IDocumentHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,12 +86,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="GetDocument.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WSMarket.Core\WSMarket.Core.csproj">
+      <Project>{9c6bcbb5-80ab-4c33-9b0b-d91d1043ba06}</Project>
+      <Name>WSMarket.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

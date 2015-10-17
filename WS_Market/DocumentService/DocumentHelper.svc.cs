@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Web.Services;
 using System.IO;
+using System.ServiceModel;
 using System.ServiceModel.Activation;
 using log4net;
+using WSMarket.Core;
 
 namespace DocumentService
 {
@@ -16,7 +18,7 @@ namespace DocumentService
         [WebMethod]
         public string UploadFile(byte[] fileBytes, DocumentTypes type, string extention)
         {
-            string folder = Path.GetFullPath(System.Environment.CurrentDirectory + "/../../DocumentStore/" + type.ToString());
+            string folder = Path.GetFullPath(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath + "/DocumentStore/" + type.ToString());
             log.Debug("folder path = " + folder);
 
             string fileName = System.Guid.NewGuid().ToString() + "." + extention;
@@ -32,9 +34,5 @@ namespace DocumentService
             return fileName;
         }
 
-        public byte[] GetFile(DocumentTypes type, string fileName)
-        {
-            return null;
-        }
     }
 }
