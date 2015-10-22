@@ -3,7 +3,7 @@ using System.Web.Services;
 using System.IO;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
-using log4net;
+using NLog;
 using WSMarket.Core;
 
 namespace DocumentService
@@ -13,16 +13,14 @@ namespace DocumentService
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class DocumentHelper : IDocumentHelper
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(DocumentHelper).Name);
-
+        private static readonly Logger log = LogManager.GetCurrentClassLogger();
+        
         [WebMethod]
         public string UploadFile(byte[] fileBytes, DocumentTypes type, string extention)
         {
             string folder = Path.GetFullPath(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath + "/DocumentStore/" + type.ToString());
-            log.Debug("folder path = " + folder);
-
             string fileName = System.Guid.NewGuid().ToString() + "." + extention;
-            log.Debug("file name = " + fileName);
+            log.Debug("file " + fileName + " intends to save at " + folder);
 
             if (!Directory.Exists(folder))
                 Directory.CreateDirectory(folder);
@@ -30,7 +28,8 @@ namespace DocumentService
             using (MemoryStream mstream = new MemoryStream(fileBytes))
                 using (FileStream fstream = new FileStream(folder + "/" + fileName, FileMode.Create))
                     mstream.WriteTo(fstream);
-            
+
+            log.Info("file " + fileName + " saved successfully");
             return fileName;
         }
 

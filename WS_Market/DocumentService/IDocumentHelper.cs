@@ -10,7 +10,7 @@ namespace DocumentService
         [OperationContract]
         string UploadFile(byte[] fileBytes, DocumentTypes type, string extention);
 
-        // //will implement later as needed.
+        //will implement later if needed.
         //[OperationContract]
         //byte[] GetFile(DocumentTypes type, string fileBytes);
 
